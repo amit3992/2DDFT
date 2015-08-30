@@ -10,7 +10,7 @@
 #include <vector>
 #include <signal.h>
 #include <math.h>
-#include <mpi.h>
+//#include <mpi.h>
 
 #include "Complex.h"
 #include "InputImage.h"
@@ -18,7 +18,7 @@
 using namespace std;
 
 
-void Transform2D(const char* inputFN) 
+void Transform2D(const char* inputFN)
 { // Do the 2D transform here.
   // 1) Use the InputImage object to read in the Tower.txt file and
   //    find the width/height of the input image.
@@ -37,7 +37,6 @@ void Transform2D(const char* inputFN)
   // 9) Send final answers to CPU 0 (unless you are CPU 0)
   //   9a) If you are CPU 0, collect all values from other processors
   //       and print out with SaveImageData().
-  InputImage image(inputFN);  // Create the helper object for reading the image
   // Step (1) in the comments is the line above.
   // Your code here, steps 2-9
 }
@@ -51,10 +50,8 @@ void Transform1D(Complex* h, int w, Complex* H)
 
 int main(int argc, char** argv)
 {
-  string fn("Tower.txt"); // default file name
-  if (argc > 1) fn = string(argv[1]);  // if name specified on cmd line
-  Transform2D(fn.c_str()); // Perform the transform.
-}  
-  
-
-  
+  //string fn("Tower.txt"); // default file name
+  //if (argc > 1) fn = string(argv[1]);  // if name specified on cmd line
+  InputImage image("Tower.txt");  // Create the helper object for reading the image
+  //Transform2D(fn.c_str()); // Perform the transform.
+}

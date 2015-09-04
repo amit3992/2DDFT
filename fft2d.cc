@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
   cout<<"Numtasks: "<<numtasks<<endl;
-  cout<<"Rank: "<<rank;
+  cout<<"Rank: "<<rank<<"\n";
   /*Complex H[256*256];
   Transform1D(d,wd,H);
   image.SaveImageData("test1d",H,wd,ht);*/

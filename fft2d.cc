@@ -74,7 +74,7 @@ int main(int argc, char** argv)
 	MPI_Comm_size(MPI_COMM_WORLD,&numtasks);
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
-  cout<<"Numtasks: "<<numtasks;
+  cout<<"Numtasks: "<<numtasks<<endl;
   cout<<"Rank: "<<rank;
   /*Complex H[256*256];
   Transform1D(d,wd,H);

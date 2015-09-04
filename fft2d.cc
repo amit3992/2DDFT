@@ -1,7 +1,7 @@
 // Distributed two-dimensional Discrete FFT transform
-// YOUR NAME HERE
-// ECE8893 Project 1
-
+// AMIT KULKARNI
+// GT ID: 903038158
+// ECE6122 Project 1
 
 #include <iostream>
 #include <fstream>
@@ -17,6 +17,7 @@
 
 using namespace std;
 
+int numtasks, rank, rc;
 
 void Transform2D(const char* inputFN)
 { // Do the 2D transform here.
@@ -50,8 +51,34 @@ void Transform1D(Complex* h, int w, Complex* H)
 
 int main(int argc, char** argv)
 {
-  //string fn("Tower.txt"); // default file name
-  //if (argc > 1) fn = string(argv[1]);  // if name specified on cmd line
-  InputImage image("Tower.txt");  // Create the helper object for reading the image
-  //Transform2D(fn.c_str()); // Perform the transform.
+  string fn("Tower.txt"); // default file name
+  if (argc > 1) fn = string(argv[1]);  // if name specified on cmd line
+  InputImage image(fn.c_str());  // Create the helper object for reading the image
+  //Transform2D(fn.c_str()); // Perform the transform
+
+  int ht,wd= 0;
+  wd = image.GetWidth();
+  ht = image.GetHeight();
+  cout<<"Height of given image: "<<ht<<endl;
+  cout<<"Width of given image: "<<wd<<endl;
+
+  Complex *d;
+  d = image.GetImageData();
+
+  rc = MPI_Init(&argc,&argv);
+	if (rc!= MPI_SUCCESS)
+	{
+		cout<<"Error";
+		MPI_Abort(MPI_COMM_WORLD,rc);
+	}
+	MPI_Comm_size(MPI_COMM_WORLD,&numtasks);
+	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+
+  cout<<"Numtasks: "<<numtasks;
+  cout<<"Rank: "<<rank;
+  /*Complex H[256*256];
+  Transform1D(d,wd,H);
+  image.SaveImageData("test1d",H,wd,ht);*/
+
+  //return 0;
 }

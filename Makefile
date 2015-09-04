@@ -1,6 +1,7 @@
 # Makefile for ECE8893, 2D FFT assignment
 
-CXX      = /usr/lib64/openmpi/bin/mpic++
+#CXX      = /usr/lib64/openmpi/bin/mpic++
+CXX      = g++
 CXXFLAGS = -Wall -g
 
 fft2d:	fft2d.o Complex.o InputImage.o

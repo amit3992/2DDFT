@@ -1,7 +1,7 @@
 // Distributed two-dimensional Discrete FFT transform
 // AMIT KULKARNI
 // GT ID: 903038158
-// ECE6122 Project 1 //
+// ECE6122 Project 1
 
 #include <iostream>
 #include <fstream>
